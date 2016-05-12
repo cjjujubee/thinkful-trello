@@ -2,13 +2,11 @@ body {
   background-color: chocolate;
   text-align: center;
 }
-
 h1 {
   font-family: 'Abril Fatface', cursive;
   font-size: 3.5em;
   margin-bottom: 0;
 }
-
 .card {
   transition: all 1s ease-in-out;
   width: 10rem;
@@ -16,15 +14,13 @@ h1 {
   display: table;
   margin: 2em auto;
   padding: 2em;
-  &:hover {
-    transform: scale(1.5);
-  }
 }
-
+.card:hover {
+  transform: scale(1.5);
+}
 .card-text {
   font-family: 'Open Sans', sans-serif;
 }
-
 h2 {
   font-family: 'Open Sans', sans-serif;
   font-size: 2em;
@@ -32,24 +28,22 @@ h2 {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-
 ul {
   list-style: none;
   padding-left: 0;
   font-size: 1em;
 }
-
 form {
   display: inline-block;
   text-align: center;
 }
-
 img {
   border-radius: 50%;
   -webkit-transition: -webkit-transform 3s ease-in-out;
   transition: transform 3s ease-in-out;
-  &:hover {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
+img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+/*# sourceMappingURL=thinkful-trello.0.0.1.css.map */
