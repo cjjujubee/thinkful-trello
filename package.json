@@ -18,7 +18,8 @@
     "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
     "build:jsx": "npm run clean:jsx && webpack",
     "watch:jsx": "npm run build:jsx && webpack --watch",
-    "clean:jsx": "rm -f build/$npm_package_name.$npm_package_version.jsx build/$npm_package_name.$npm_package_version.jsx.map"
+    "clean:jsx": "rm -f build/$npm_package_name.$npm_package_version.jsx build/$npm_package_name.$npm_package_version.jsx.map",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,8 @@
     "babel-preset-react": "^6.5.0",
     "chokidar-cli": "^1.2.0",
     "clean-css": "^3.4.12",
+    "gh-pages": "^0.11.0",
+    "gh-pages-deploy": "^0.4.2",
     "http-server": "^0.9.0",
     "less": "^2.7.1",
     "uglify-js": "^2.6.2",
