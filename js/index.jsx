@@ -4,35 +4,35 @@ var ReactDOM = require('react-dom');
 var TrelloApp = React.createClass({
   getInitialState: function() {
         return {
-            title: 'Knüth-Büth',
+            title: 'Knüth-Büth: Do What You Gotta Do',
             lists: [
                 {
                     id: '0',
-                    title: 'Geriatric Hannibal',
-                    cards: ['Hello, Clarice', 'How are you', 'Fine thanks'],
+                    title: 'Chores',
+                    cards: ['Laundry', 'All the dishes', 'Wash the car'],
                     typed: ''
                 },
                 {
                     id: '1',
-                    title: 'Numbers',
-                    cards: ['Ein', 'Zwei', 'Drei'],
+                    title: 'Groceries',
+                    cards: ['Apples', 'Cookies', 'Booze'],
                     typed: ''
                 }
             ]
-            //typed: ''
           };
     },
     onChange: function(event) {
+        var index = parseInt(event.target.parentNode.getAttribute('id'));
         var newTyped = this.state.lists.slice();
-        newTyped[0].typed = event.target.value;
+        newTyped[index].typed = event.target.value;
 
         this.setState({
             lists: newTyped
         });
     },
     onSubmit: function (event) {
-        console.log('asd')
         event.preventDefault();
+        console.log(event.target.id);
         var index = event.target.id;
         var newList = this.state.lists.slice();
         newList[index].cards.push(this.state.lists[index].typed);
@@ -52,7 +52,7 @@ var TrelloApp = React.createClass({
 var TrelloBoard = function(props) {
     var trelloLists = [];
     for (var i=0; i < props.board.lists.length; i++) {
-      trelloLists.push(<TrelloList list={props.board.lists[i]} onSubmit={props.onSubmit} onChange={props.onChange} />);
+      trelloLists.push(<TrelloList key={i} list={props.board.lists[i]} onSubmit={props.onSubmit} onChange={props.onChange} />);
     }
     return (
       <div className="list">
@@ -66,7 +66,7 @@ var TrelloBoard = function(props) {
 var TrelloList = function(props) {
     var cards = [];
     for (var i = 0; i < props.list.cards.length; i += 1) {
-        cards.push(<TrelloCard card={props.list.cards[i]}/>)
+        cards.push(<TrelloCard key={i} card={props.list.cards[i]}/>)
     }
     return (
         <div>
